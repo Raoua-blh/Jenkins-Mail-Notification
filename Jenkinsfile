@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     stages {
-        stage('Display README.md Content') {
+        stage('Display and Email README.md Content') {
             steps {
                 script {
                     // Read the contents of README.md using 'cat' command
@@ -10,6 +10,13 @@ pipeline {
                     
                     // Print the contents to the console
                     echo "Contents of README.md:\n${readmeContents}"
+                    
+                    // Send an email with the contents of README.md
+                    emailext (
+                        subject: 'Contents of README.md',
+                        body: readmeContents,
+                        to: 'your-email@example.com'
+                    )
                 }
             }
         }
