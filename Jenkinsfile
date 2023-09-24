@@ -15,7 +15,7 @@ pipeline {
                     emailext (
                         subject: 'Contents of README.md',
                         body: readmeContents,
-                        to: 'your-email@example.com'
+                        to: 'rawaa.blh@gmail.com'
                     )
                 }
             }
