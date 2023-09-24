@@ -2,18 +2,16 @@ pipeline {
     agent any
     
     stages {
-        stage('Display and Email README.md Content') {
+        stage('email Notif ') {
             steps {
                 script {
-                    // Read the contents of README.md using 'cat' command
                     def readmeContents = sh(script: 'cat README.md', returnStdout: true).trim()
-                    
-                    // Print the contents to the console
+
                     echo "Contents of README.md:\n${readmeContents}"
                     
-                    // Send an email with the contents of README.md
+          
                     emailext (
-                        subject: 'Contents of README.md',
+                        subject: 'from Rawaa Ben Hadj Amor Mail Notif Jenkins TP',
                         body: readmeContents,
                         to: 'rawaa.blh@gmail.com'
                     )
