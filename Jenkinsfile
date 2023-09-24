@@ -1,13 +1,10 @@
 pipeline {
     agent any
-
+    
     stages {
-        stage('Display README.txt Content') {
+        stage('Display Hello World') {
             steps {
-                script {
-                 
-                    echo "Contents of "
-                }
+                echo "Hello, World!"
             }
         }
     }
