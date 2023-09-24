@@ -1,0 +1,10 @@
+pipeline {
+    agent any
+
+        stage('Send Email') {
+            steps {
+                emailext body: readFile('README.txt'), subject: 'New Commit', to: 'bhjrou5@gmail.com'
+            }
+        }
+    }
+}
