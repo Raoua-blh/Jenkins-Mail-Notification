@@ -2,9 +2,15 @@ pipeline {
     agent any
     
     stages {
-        stage('Display Hello World') {
+        stage('Display README.txt Content') {
             steps {
-                echo "Hello, World!"
+                script {
+                    // Read the contents of README.txt using 'cat' command
+                    def readmeContents = sh(script: 'cat README.txt', returnStdout: true).trim()
+                    
+                    // Print the contents to the console
+                    echo "Contents of README.txt:\n${readmeContents}"
+                }
             }
         }
     }
