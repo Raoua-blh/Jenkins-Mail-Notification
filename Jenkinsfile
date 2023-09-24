@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     stages {
-        stage('Display README.txt Content') {
+        stage('Display README.txt Conten t') {
             steps {
                 script {
                     // Read the contents of README.txt using 'cat' command
