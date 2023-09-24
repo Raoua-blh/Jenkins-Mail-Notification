@@ -1,11 +1,21 @@
 pipeline {
     agent any
-
+    
     stages {
-      
-        stage('mail notif') {
+        stage('Read README.txt') {
             steps {
-                emailext body: readFile('README.txt'), subject: 'New Commit', to: 'bhjrou5@gmail.com'
+                // Read the contents of README.txt
+                def readmeContents = readFile('README.txt')
+                
+                // Print the contents to the console (you can modify this as needed)
+                echo "Contents of README.txt:\n${readmeContents}"
+                
+                // Send an email with the contents of README.txt
+                emailext (
+                    subject: 'New commit: Contents of README.txt',
+                    body: readmeContents,
+                    to: 'rawaa.blh@gmail.com'
+                )
             }
         }
     }
