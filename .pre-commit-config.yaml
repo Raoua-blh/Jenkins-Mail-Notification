@@ -1,0 +1,27 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-json
+      - id: check-added-large-files
+      - id: check-ast
+  - repo: https://github.com/google/google-java-format
+    rev: v1.11.0
+    hooks:
+      - id: google-java-format
+        exclude: '\.pb\.txt$'
+  - repo: https://github.com/checkstyle/checkstyle
+    rev: v8.44
+    hooks:
+      - id: checkstyle
+        args: [--config, /path/to/checkstyle.xml]
+  - repo: local
+    hooks:
+      - id: run-tests
+        name: Run JUnit Tests
+        entry: ./scripts/run_tests.sh
+        language: script
+        types: [java]
